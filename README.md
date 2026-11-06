@@ -1307,3 +1307,218 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 @media(max-width:600px){.barra-navegacao{flex-direction:column;gap:.8rem;padding:1rem}.links-navegacao{justify-content:center;gap:.2rem}.links-navegacao a{padding:.4rem .7rem;font-size:.8rem}.capitulo-historia{flex-direction:column;padding:1.5rem}.numero-capitulo{font-size:2.5rem}.atributos-personagem li span{width:75px;font-size:.8rem}.cartao-missao{flex-direction:column}.navegacao-planeta{flex-direction:column}.navegacao-planeta .botao{text-align:center}.conteudo-final{padding:2rem 1.5rem}.conteudo-final h2{font-size:1.5rem}}
 
 ===== FIM =====# Meowlky_Way
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   04-PLANETAS — Mapa da galáxia + páginas individuais
+   ========================================================== */
+
+/* ---------- Mapa (planetas.html) ---------- */
+.container-planetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 5rem;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cartao-planeta {
+  background: rgba(26, 31, 74, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: var(--raio);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--branco);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(8px);
+}
+
+.cartao-planeta:hover {
+  transform: translateY(-8px);
+  border-color: var(--dourado);
+  box-shadow: 0 24px 48px rgba(139, 92, 246, 0.35);
+}
+
+.visual-planeta {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Orbes dos planetas ---------- */
+.orbe-planeta {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  animation: girar 20s linear infinite;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.orbe-1 {
+  background: radial-gradient(circle at 30% 30%, #86efac, #16a34a 60%, #14532d);
+  box-shadow: 0 0 50px rgba(34, 197, 94, 0.5), inset -15px -15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.orbe-2 {
+  background: radial-gradient(circle at 30% 30%, #c4b5fd, #7c3aed 60%, #312e81);
+  box-shadow: 0 0 50px rgba(139, 92, 246, 0.6), inset -15px -15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.orbe-3 {
+  background: radial-gradient(circle at 30% 30%, #fbcfe8, #ec4899 60%, #831843);
+  box-shadow: 0 0 50px rgba(236, 72, 153, 0.5), inset -15px -15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.orbe-4 {
+  background: radial-gradient(circle at 30% 30%, #bae6fd, #0ea5e9 60%, #082f49);
+  box-shadow: 0 0 50px rgba(14, 165, 233, 0.5), inset -15px -15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.orbe-5 {
+  background: radial-gradient(circle at 30% 30%, #fef3c7, #f59e0b 60%, #78350f);
+  box-shadow: 0 0 60px rgba(251, 191, 36, 0.7), inset -15px -15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.anel-planeta {
+  position: absolute;
+  width: 180px;
+  height: 30px;
+  border: 3px solid rgba(251, 191, 36, 0.7);
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  top: 65%;
+}
+
+.lua-planeta {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #e2e8f0, #94a3b8);
+}
+
+.lua-1 { top: 20px; left: 30px; }
+.lua-2 { bottom: 30px; right: 30px; width: 14px; height: 14px; }
+
+.anel-3 { border-color: rgba(236, 72, 153, 0.6); }
+
+/* ---------- Texto dos cartões do mapa ---------- */
+.cartao-planeta h2 {
+  color: var(--dourado-suave);
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  font-family: var(--fonte-titulo);
+}
+
+.etiqueta-planeta {
+  color: var(--brilho-rosa);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.cartao-planeta > p:not(.etiqueta-planeta) {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.status-planeta {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  font-size: 0.8rem;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.planeta-3 .status-planeta,
+.planeta-4 .status-planeta {
+  background: rgba(251, 191, 36, 0.15);
+  color: var(--dourado-suave);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+.planeta-5 .status-planeta {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--roxo-claro);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+/* ==========================================================
+   Páginas individuais dos planetas
+   ========================================================== */
+
+.destaque-planeta {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem 6vw;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.destaque-planeta .orbe-planeta {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.destaque-planeta-2 .orbe-planeta { animation-duration: 15s; }
+.destaque-planeta-5 .orbe-planeta { animation-duration: 25s; }
+
+.info-destaque-planeta h1 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  background: linear-gradient(135deg, var(--dourado), var(--brilho-rosa));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0.3rem 0;
+  font-weight: 800;
+}
+
+.setor-planeta {
+  color: var(--dourado);
+  font-size: 0.
