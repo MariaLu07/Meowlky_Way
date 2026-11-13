@@ -52,7 +52,7 @@ a {
 
 /* FUNDO ESPACIAL */
 
-.space-background {
+.fundo {
     position: fixed;
     inset: 0;
     z-index: -1;
@@ -71,7 +71,7 @@ a {
         var(--fundo);
 }
 
-.stars {
+.estrela {
     position: absolute;
     inset: 0;
 
@@ -86,7 +86,7 @@ a {
     animation: starsMove 35s linear infinite;
 }
 
-.nebula {
+.nebulosa {
     position: absolute;
     width: 450px;
     height: 450px;
@@ -154,7 +154,7 @@ a {
 
 .navigation a {
     color: var(--texto);
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 800;
     transition: 0.3s;
 }
@@ -169,18 +169,32 @@ a {
 
 .hero {
     min-height: 560px;
-
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    display: flex;
     align-items: center;
-    gap: 30px;
-
+    justify-content: center;
+    text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
 .hero-content {
-    max-width: 720px;
+    max-width: 850px;
+    width: 100%;
+    margin: auto;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin: 20px auto 0;
+    color: var(--texto);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .section-label {
@@ -222,7 +236,7 @@ a {
     margin-top: 20px;
 
     color: var(--texto);
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.8;
 }
 
@@ -262,11 +276,6 @@ a {
     );
 
     box-shadow: 0 8px 30px rgba(188, 108, 255, 0.2);
-}
-
-.btn-primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 35px rgba(255, 92, 171, 0.3);
 }
 
 
@@ -415,7 +424,7 @@ a {
     margin: 15px 0 20px;
 
     font-family: 'Orbitron', sans-serif;
-    font-size: 21px;
+    font-size: 23px;
     color: var(--roxo);
 }
 
@@ -424,7 +433,7 @@ a {
     margin-bottom: 16px;
 
     color: var(--texto);
-    font-size: 13px;
+    font-size: 17px;
     line-height: 1.8;
 }
 
@@ -448,11 +457,6 @@ a {
     transition: 0.3s;
 }
 
-.story-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--azul);
-}
-
 .card-top {
     display: flex;
     align-items: center;
@@ -464,7 +468,7 @@ a {
     font-size: 20px;
 }
 
-.card-top small {
+.card-top p {
     color: var(--azul);
     font-size: 9px;
     letter-spacing: 2px;
@@ -480,7 +484,7 @@ a {
     font-size: 17px;
 }
 
-.story-card p {
+.story-card small {
     margin-top: 12px;
     color: var(--texto);
     font-size: 13px;
@@ -535,6 +539,16 @@ a {
     grid-template-columns: 0.9fr 1.1fr;
     align-items: center;
     gap: 60px;
+}
+
+.solar-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(11, 15, 43, 0.75);
 }
 
 .solar-visual {
@@ -647,7 +661,7 @@ a {
     margin: 15px 0 18px;
 
     font-family: 'Orbitron', sans-serif;
-    font-size: 21px;
+    font-size: 24px;
     line-height: 1.5;
 }
 
@@ -655,7 +669,7 @@ a {
     margin-bottom: 14px;
 
     color: var(--texto);
-    font-size: 13px;
+    font-size: 17px;
     line-height: 1.8;
 }
 
@@ -684,7 +698,7 @@ a {
 .warning-card strong {
     display: block;
     color: var(--rosa);
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 1px;
 }
 
@@ -692,7 +706,7 @@ a {
     display: block;
     margin-top: 5px;
     color: var(--texto);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.5;
 }
 
@@ -773,7 +787,7 @@ a {
     text-align: center;
 
     color: var(--azul);
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 900;
     letter-spacing: 2px;
 }
@@ -825,7 +839,7 @@ a {
     margin: 0 auto 25px;
 
     color: var(--texto);
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.7;
 }
 
@@ -836,39 +850,11 @@ a {
     min-height: 68px;
     padding: 0 48px;
 
-    font-size: 15px;
+    font-size: 18px;
     border-radius: 14px;
 }
 
 
-/* RODAPÉ */
-
-.footer {
-    padding: 25px 8%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-
-    border-top: 1px solid var(--borda);
-    background: rgba(11, 15, 43, 0.9);
-}
-
-.footer p {
-    color: var(--texto);
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: 900;
-}
-
-.copyright {
-    margin-top: 5px;
-
-    color: #A0A5C1;
-    font-size: 11px;
-    text-align: center;
-}
 
 
 /* RESPONSIVIDADE */
